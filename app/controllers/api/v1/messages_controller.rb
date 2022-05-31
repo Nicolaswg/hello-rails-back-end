@@ -1,7 +1,8 @@
 class Api::V1::MessagesController < ApplicationController
-  def index 
-	
+  def index
+		message = Message.find(Message.pluck(:id).sample)
+		render json: {
+			message: message.text
+		}.to_json
 	end
-
-  
 end
